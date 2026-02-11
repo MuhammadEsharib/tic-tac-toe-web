@@ -18,4 +18,4 @@ Play in your browser with a friend or test your skills against the game board!
 ## How to Run Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/tic-tac-toe-web.git
+   git clone https://github.com/MuhammadEsharib/tic-tac-toe-web.git
