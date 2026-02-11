@@ -4,7 +4,7 @@ A responsive and interactive **Tic-Tac-Toe** game built with **HTML, CSS, JavaSc
 Play in your browser with a friend or test your skills against the game board!
 
 ## 🔗 Live Demo
-[Play Now](https://your-username.github.io/tic-tac-toe-web/)
+[Play Now]([https://your-username.github.io/tic-tac-toe-web/](https://tic-tac-toe-web-sepia.vercel.app/))
 
 ## Features
 - Two-player mode
