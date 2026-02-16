@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  // =========================
+ 
   // CONSTANTS
-  // =========================
   const Players = { X: "X", O: "O" };
   const WIN_PATTERNS = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -39,11 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     randomSound.play();
   }
 
-
-
-  // =========================
   // DOM ELEMENTS
-  // =========================
   const boardEl = document.getElementById("board");
   const statusEl = document.getElementById("status");
   const modeScreen = document.getElementById("modeScreen");
@@ -58,9 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const winSound = new Audio("sounds/gameover.mp3"); // optional sound
 
-  // =========================
   // GAME STATE
-  // =========================
   const Game = {
     board: Array(9).fill(""),
     turn: Players.X,
@@ -72,16 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // =========================
   // INIT
-  // =========================
   createBoard();
   updateScoreUI();
   updateStatus();
 
-  // =========================
   // BOARD CREATION
-  // =========================
   function createBoard() {
     boardEl.innerHTML = "";
     for (let i = 0; i < 9; i++) {
@@ -98,9 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // =========================
   // EVENT HANDLERS
-  // =========================
   // Cell click
   boardEl.addEventListener("click", handleMove);
 
@@ -123,9 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
   resetBtn.addEventListener("click", resetGame);
   resetScoresBtn.addEventListener("click", resetScores);
 
-  // =========================
   // GAME CONTROL FUNCTIONS
-  // =========================
   function startGame() {
     modeScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
@@ -154,9 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateScoreUI();
   }
 
-  // =========================
   // PLAYER MOVE
-  // =========================
   function handleMove(e) {
     const idx = e.target.dataset.index;
     if (idx === undefined || !Game.active || Game.board[idx]) return;
@@ -189,9 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateStatus();
   }
 
-  // =========================
   // STATUS & SCORE
-  // =========================
   function updateStatus(text) {
     statusEl.textContent = text || `${Game.turn}'s Turn`;
   }
@@ -206,9 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("scoreO", Game.score.O);
   }
 
-  // =========================
   // WIN / DRAW LOGIC
-  // =========================
   function checkGameEnd() {
     const result = getWinner(Game.board);
 
@@ -281,9 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     winLine.style.opacity = "1";
   }
 
-  // =========================
   // AI MINIMAX
-  // =========================
   function aiMove() {
     const move = minimax([...Game.board], Players.O);
     if (move.idx !== undefined) makeMove(move.idx, Players.O);
@@ -316,9 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : moves.reduce((a, b) => a.score < b.score ? a : b);
   }
 
-  // =========================
   // TITLE HIGHLIGHT ANIMATION
-  // =========================
   function animateTitleHighlight() {
     titleEl.classList.remove("active-mode");
     void titleEl.offsetWidth; // trigger reflow
